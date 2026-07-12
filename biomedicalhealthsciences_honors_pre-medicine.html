@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Shivani Sivakumar — Research Portfolio</title>
+<meta name="description" content="Shivani Sivakumar — Biomedical Sciences (Honors) student at Purdue University. Research portfolio and CV." />
+
+<!-- Open Graph for WhatsApp link previews -->
+<meta property="og:title" content="Shivani Sivakumar — Research Portfolio" />
+<meta property="og:description" content="BSc Biomedical Sciences (Honors, Pre-Medicine), Purdue University — seeking research roles in Oncology & Translational Medicine." />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600;700&family=Spectral+SC:wght@600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   TOKENS
+   ============================================================ */
+:root{
+  --bg:            #0a0f1c;
+  --bg-vignette:   #0d1526;
+  --surface:       #121b30;
+  --surface-hi:    #17223d;
+  --surface-hover: #1b2745;
+  --border:        rgba(147,166,213,0.14);
+  --border-hi:     rgba(147,166,213,0.28);
+
+  --text-primary:  #eaf0fb;
+  --text-secondary:#93a2c4;
+  --text-muted:    #5d6b8c;
+
+  --teal:          #4fe8c7;
+  --teal-dim:      rgba(79,232,199,0.14);
+  --violet:        #b98cff;
+  --violet-dim:    rgba(185,140,255,0.14);
+  --amber:         #ffc072;
+  --amber-dim:     rgba(255,192,114,0.14);
+  --rose:          #ff7597;
+
+  --font-display:  'Spectral', Georgia, serif;
+  --font-caps:     'Spectral SC', Georgia, serif;
+  --font-body:     'Inter', -apple-system, sans-serif;
+  --font-mono:     'IBM Plex Mono', monospace;
+
+  --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease:   cubic-bezier(0.22, 1, 0.36, 1);
+
+  --header-h: 64px;
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+*{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+
+body{
+  margin:0;
+  background: radial-gradient(ellipse 120% 80% at 50% -10%, var(--bg-vignette), var(--bg) 55%);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* subtle fixed "specimen field" texture */
+body::before{
+  content:"";
+  position: fixed; inset:0;
+  background-image:
+    radial-gradient(circle at 18% 22%, rgba(79,232,199,0.05), transparent 40%),
+    radial-gradient(circle at 82% 68%, rgba(185,140,255,0.05), transparent 42%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+a{ color: var(--teal); }
+
+::-webkit-scrollbar{ height: 8px; width: 8px; }
+::-webkit-scrollbar-track{ background: transparent; }
+::-webkit-scrollbar-thumb{ background: var(--border-hi); border-radius: 8px; }
+
+.visually-hidden{
+  position:absolute; width:1px; height:1px; overflow:hidden;
+  clip:rect(0 0 0 0); white-space:nowrap;
+}
+
+/* ============================================================
+   TOP NAV
+   ============================================================ */
+.topbar{
+  position: sticky; top:0; z-index: 40;
+  height: var(--header-h);
+  background: rgba(10,15,28,0.82);
+  backdrop-filter: blur(14px) saturate(140%);
+  border-bottom: 1px solid var(--border);
+  display:flex; align-items:center; gap: 14px;
+  padding: 0 14px;
+}
+
+.brand{
+  display:flex; align-items:center; gap:8px;
+  font-family: var(--font-caps);
+  font-size: 0.86rem;
+  letter-spacing: 0.06em;
+  color: var(--text-primary);
+  text-decoration:none;
+  flex-shrink:0;
+  cursor:pointer;
+  background:none; border:none;
+  padding: 6px 4px;
+}
+.brand .dot{
+  width:9px; height:9px; border-radius:50%;
+  background: var(--teal);
+  box-shadow: 0 0 10px 2px var(--teal-dim);
+  flex-shrink:0;
+}
+.brand small{ color: var(--text-muted); font-family: var(--font-mono); font-size: 0.62rem; }
+
+.nav-scroll-wrap{
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+  display:flex;
+  align-items:center;
+}
+
+.nav-arrow{
+  flex-shrink:0;
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-secondary);
+  cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  transition: opacity 0.2s var(--ease), transform 0.2s var(--spring), border-color .2s;
+  z-index: 2;
+}
+.nav-arrow:hover{ color: var(--teal); border-color: var(--teal); transform: scale(1.08); }
+.nav-arrow:active{ transform: scale(0.92); }
+.nav-arrow[data-hidden="true"]{ opacity:0; pointer-events:none; }
+.nav-arrow svg{ width:15px; height:15px; }
+.nav-arrow.left{ margin-right: 4px; }
+.nav-arrow.right{ margin-left: 4px; }
+
+.tabs{
+  display:flex; gap: 6px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 4px 2px;
+}
+.tabs::-webkit-scrollbar{ display:none; }
+
+.tab{
+  flex-shrink:0;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.03em;
+  color: var(--text-secondary);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 7px 13px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color .25s var(--ease), background .25s var(--ease), border-color .25s var(--ease), transform .25s var(--spring);
+  position: relative;
+}
+.tab:hover{ color: var(--text-primary); background: var(--surface-hover); }
+.tab.active{
+  color: var(--bg);
+  background: var(--teal);
+  border-color: var(--teal);
+  font-weight: 600;
+  transform: translateY(-1px);
+}
+
+/* ============================================================
+   LAYOUT / HERO
+   ============================================================ */
+.wrap{
+  position: relative; z-index: 1;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 20px 90px;
+}
+
+.hero{
+  padding: 52px 4px 34px;
+  scroll-margin-top: calc(var(--header-h) + 12px);
+}
+
+.hero-eyebrow{
+  display:inline-flex; align-items:center; gap:8px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--teal);
+  background: var(--teal-dim);
+  border: 1px solid rgba(79,232,199,0.3);
+  padding: 6px 12px;
+  border-radius: 999px;
+  margin-bottom: 22px;
+}
+.hero-eyebrow::before{ content:"◎"; }
+
+.hero h1{
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.1rem, 6vw, 3.4rem);
+  line-height: 1.05;
+  margin: 0 0 10px;
+  letter-spacing: -0.01em;
+}
+
+.hero .role-line{
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.05rem, 2.6vw, 1.3rem);
+  color: var(--text-secondary);
+  margin: 0 0 6px;
+}
+
+.hero .school-line{
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin: 0 0 26px;
+}
+.hero .school-line strong{ color: var(--text-secondary); font-weight: 500; }
+
+.contact-row{
+  display:flex; flex-wrap:wrap; gap: 10px;
+}
+.contact-chip{
+  display:flex; align-items:center; gap:7px;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--text-secondary);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 8px 13px;
+  border-radius: 10px;
+  text-decoration:none;
+  transition: border-color .2s var(--ease), color .2s var(--ease), transform .2s var(--spring);
+}
+.contact-chip:hover{ border-color: var(--teal); color: var(--teal); transform: translateY(-2px); }
+.contact-chip svg{ width:13px; height:13px; flex-shrink:0; }
+
+/* ============================================================
+   CARD DECK ("SPECIMEN SLIDES")
+   ============================================================ */
+.deck{
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-top: 8px;
+}
+
+.card{
+  scroll-margin-top: calc(var(--header-h) + 12px);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  overflow: hidden;
+  transition: border-color .35s var(--ease), box-shadow .35s var(--ease), transform .35s var(--spring);
+}
+.card:hover{ border-color: var(--border-hi); }
+.card.open{
+  border-color: rgba(79,232,199,0.35);
+  box-shadow: 0 0 0 1px rgba(79,232,199,0.08), 0 18px 40px -20px rgba(79,232,199,0.25);
+}
+
+.card-head{
+  display:flex; align-items:flex-start; gap: 16px;
+  width:100%;
+  padding: 20px 22px;
+  background: none; border:none;
+  text-align: left;
+  cursor: pointer;
+  color: inherit;
+  font-family: inherit;
+}
+
+.slide-tag{
+  flex-shrink:0;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.05em;
+  color: var(--violet);
+  background: var(--violet-dim);
+  border: 1px solid rgba(185,140,255,0.3);
+  padding: 4px 9px;
+  border-radius: 6px;
+  margin-top: 3px;
+  white-space: nowrap;
+}
+
+.card-head-text{ flex: 1; min-width:0; }
+
+.card-title{
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.22rem;
+  margin: 0 0 4px;
+  color: var(--text-primary);
+}
+.card-sub{
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  margin:0;
+}
+.card-preview{
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  margin: 8px 0 0;
+  max-width: 60ch;
+}
+
+.chevron{
+  flex-shrink:0;
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  display:flex; align-items:center; justify-content:center;
+  color: var(--text-secondary);
+  transition: transform .45s var(--spring), color .3s var(--ease), border-color .3s var(--ease), background .3s var(--ease);
+  margin-top: 2px;
+}
+.chevron svg{ width:14px; height:14px; }
+.card.open .chevron{
+  transform: rotate(135deg);
+  color: var(--bg);
+  background: var(--teal);
+  border-color: var(--teal);
+}
+
+/* --- morph body: grid-rows trick for smooth, robust auto-height animation --- */
+.card-body-outer{
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .5s var(--spring);
+}
+.card.open .card-body-outer{ grid-template-rows: 1fr; }
+
+.card-body-inner{
+  overflow: hidden;
+  min-height: 0;
+}
+
+.card-body{
+  padding: 0 22px 26px 60px;
+  opacity: 0;
+  transform: translateY(-6px) scale(0.985);
+  transition: opacity .35s var(--ease) .05s, transform .4s var(--spring) .05s;
+}
+.card.open .card-body{ opacity: 1; transform: translateY(0) scale(1); }
+
+.block{ margin-bottom: 18px; }
+.block:last-child{ margin-bottom:0; }
+
+.block-role{
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.97rem;
+  margin: 0 0 2px;
+}
+.block-meta{
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--teal);
+  margin: 0 0 10px;
+}
+.block p{ margin: 0 0 8px; color: var(--text-secondary); font-size: 0.92rem; }
+
+ul.bullets{
+  margin: 8px 0 0; padding: 0; list-style:none;
+}
+ul.bullets li{
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 7px;
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+}
+ul.bullets li::before{
+  content:"";
+  position:absolute; left:0; top:0.55em;
+  width:6px; height:6px; border-radius:1px;
+  background: var(--teal);
+  transform: rotate(45deg);
+}
+
+.subproject{
+  border-left: 2px solid var(--border);
+  padding: 4px 0 4px 16px;
+  margin: 14px 0;
+}
+.subproject-title{
+  font-weight:600; color: var(--text-primary); font-size: 0.9rem; margin-bottom:6px;
+}
+
+.badge{
+  display:inline-flex; align-items:center; gap:6px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--amber);
+  background: var(--amber-dim);
+  border: 1px solid rgba(255,192,114,0.35);
+  padding: 4px 9px;
+  border-radius: 999px;
+  margin-top: 6px;
+}
+.badge::before{ content:"✦"; }
+
+/* horizontally-scrolling chip rows (skills / certifications / languages) */
+.hscroll-wrap{ position: relative; margin-top: 4px; }
+.hscroll{
+  display:flex; gap:9px;
+  overflow-x:auto;
+  scroll-behavior:smooth;
+  scrollbar-width:none;
+  padding: 4px 2px 10px;
+}
+.hscroll::-webkit-scrollbar{ display:none; }
+
+.chip{
+  flex-shrink:0;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  background: var(--surface-hi);
+  border: 1px solid var(--border);
+  padding: 9px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color .2s var(--ease), border-color .2s var(--ease), background .2s var(--ease), transform .25s var(--spring);
+}
+.chip:hover{ border-color: var(--border-hi); transform: translateY(-2px); }
+.chip.selected{
+  color: var(--bg);
+  background: var(--teal);
+  border-color: var(--teal);
+  font-weight:600;
+  transform: translateY(-2px) scale(1.03);
+}
+
+.hscroll-arrow{
+  position:absolute; top:0; bottom: 10px;
+  width: 34px;
+  display:flex; align-items:center; justify-content:center;
+  border:none; cursor:pointer;
+  color: var(--text-primary);
+  z-index: 3;
+  transition: opacity .2s var(--ease);
+}
+.hscroll-arrow.left{
+  left:-4px;
+  background: linear-gradient(90deg, var(--surface) 40%, transparent);
+  justify-content: flex-start;
+}
+.hscroll-arrow.right{
+  right:-4px;
+  background: linear-gradient(270deg, var(--surface) 40%, transparent);
+  justify-content: flex-end;
+}
+.hscroll-arrow[data-hidden="true"]{ opacity:0; pointer-events:none; }
+.hscroll-arrow svg{ width:15px; height:15px; }
+
+/* ============================================================
+   FOOTER / BREADCRUMB
+   ============================================================ */
+footer{
+  position: relative; z-index:1;
+  border-top: 1px solid var(--border);
+  padding: 22px 20px 26px;
+  margin-top: 30px;
+}
+.breadcrumb{
+  max-width: 880px;
+  margin: 0 auto 16px;
+  display:flex; align-items:center; gap:6px;
+  flex-wrap: wrap;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+.breadcrumb .crumb{ color: var(--text-muted); }
+.breadcrumb .crumb.current{ color: var(--teal); }
+.breadcrumb .sep{ color: var(--border-hi); }
+
+.footer-credits{
+  max-width: 880px;
+  margin: 0 auto;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  display:flex; flex-direction:column; gap:4px;
+}
+.footer-credits p{
+  margin:0;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+.footer-credits .powered{ font-size: 0.6rem; color: rgba(93,107,140,0.6); }
+
+/* ============================================================
+   BACK TO TOP
+   ============================================================ */
+.to-top{
+  position: fixed;
+  right: 20px; bottom: 20px;
+  width: 46px; height:46px;
+  border-radius: 50%;
+  border: 1px solid rgba(79,232,199,0.35);
+  background: var(--surface-hi);
+  color: var(--teal);
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer;
+  box-shadow: 0 10px 30px -10px rgba(0,0,0,0.6);
+  opacity:0; visibility:hidden;
+  transform: translateY(14px) scale(0.85);
+  transition: opacity .3s var(--ease), transform .4s var(--spring), visibility .3s;
+  z-index: 45;
+}
+.to-top.show{
+  opacity:1; visibility:visible;
+  transform: translateY(0) scale(1);
+  animation: floatPulse 2.6s var(--ease) infinite;
+}
+.to-top:hover{ background: var(--teal); color: var(--bg); }
+.to-top svg{ width:18px; height:18px; }
+
+@keyframes floatPulse{
+  0%,100%{ box-shadow: 0 10px 30px -10px rgba(0,0,0,0.6), 0 0 0 0 rgba(79,232,199,0.25); }
+  50%{ box-shadow: 0 10px 30px -10px rgba(0,0,0,0.6), 0 0 0 8px rgba(79,232,199,0); }
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 640px){
+  .card-body{ padding-left: 22px; }
+  .brand small{ display:none; }
+  .hero{ padding-top: 38px; }
+  .to-top{ right:14px; bottom:14px; width:42px; height:42px; }
+}
+@media (min-width: 641px){
+  .nav-arrow.mobile-only{ display:none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     TOP NAVIGATION
+     ============================================================ -->
+<header class="topbar">
+  <button class="brand" id="brandHome" aria-label="Scroll to top">
+    <span class="dot"></span> SHIVANI SIVAKUMAR <small>&nbsp;·&nbsp;RESEARCH PORTFOLIO</small>
+  </button>
+
+  <div class="nav-scroll-wrap">
+    <button class="nav-arrow left" id="tabsLeft" aria-label="Scroll tabs left">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <nav class="tabs" id="tabs" aria-label="Section navigation"></nav>
+    <button class="nav-arrow right" id="tabsRight" aria-label="Scroll tabs right">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="hero" id="hero">
+    <div class="hero-eyebrow">Seeking Research Roles — Oncology &amp; Translational Medicine</div>
+    <h1>Shivani Sivakumar</h1>
+    <p class="role-line">BSc Biomedical Sciences (Honors, Pre‑Medicine)</p>
+    <p class="school-line"><strong>Purdue University</strong>, West Lafayette · Expected Graduation May 2028</p>
+    <div class="contact-row">
+      <a class="contact-chip" href="https://www.linkedin.com/in/shivanisivakumar" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7.5 0h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.65 1.8-2.65 3.65V23h-4V8z"/></svg>
+        linkedin.com/in/shivanisivakumar
+      </a>
+      <a class="contact-chip" href="mailto:shiv.1906theoptimist@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m4 6 8 7 8-7"/></svg>
+        shiv.1906theoptimist@gmail.com
+      </a>
+      <a class="contact-chip" href="mailto:sivaku27@purdue.edu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m4 6 8 7 8-7"/></svg>
+        sivaku27@purdue.edu
+      </a>
+      <a class="contact-chip" href="tel:+17655434078">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .8 2.9a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.4a2 2 0 0 1 2.1-.4c.9.4 1.9.7 2.9.8a2 2 0 0 1 1.7 2z"/></svg>
+        +1 (765) 543‑4078
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CARD DECK
+       ============================================================ -->
+  <main class="deck" id="deck">
+    <!-- Cards are injected by JS from the DATA array below,
+         so content and structure stay perfectly in sync. -->
+  </main>
+</div>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+  <div class="breadcrumb" id="breadcrumb">
+    <span class="crumb current">Home</span>
+  </div>
+  <div class="footer-credits">
+    <p>Design idea by Shivani Sivakumar &copy; Shivani Sivakumar | 2026</p>
+    <p class="powered">Powered by claude.ai desktop free version</p>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
+
+<script src="app.js"></script>
+</body>
+</html>
