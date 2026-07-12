@@ -1,0 +1,1484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Shivani Sivakumar — Research Portfolio</title>
+<meta name="description" content="Shivani Sivakumar — Biomedical Sciences (Honors) student at Purdue University. Research portfolio and CV." />
+
+<!-- Open Graph for WhatsApp link previews -->
+<meta property="og:title" content="Shivani Sivakumar — Research Portfolio" />
+<meta property="og:description" content="BSc Biomedical Sciences (Honors, Pre-Medicine), Purdue University — seeking research roles in Oncology & Translational Medicine." />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600;700&family=Spectral+SC:wght@600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   TOKENS
+   ============================================================ */
+:root{
+
+  --bg:            #f6f1e7;
+  --bg-vignette:   #efe6d7;
+
+  --surface:       #fffdf9;
+  --surface-hi:    #faf5ee;
+  --surface-hover: #f3ece2;
+
+  --border:        rgba(104,88,65,.12);
+  --border-hi:     rgba(104,88,65,.25);
+
+  --text-primary:  #2f2a24;
+  --text-secondary:#5d5346;
+  --text-muted:    #8b7c6a;
+
+  --teal:          #4d8b74;
+  --teal-dim:      rgba(77,139,116,.12);
+
+  --violet:        #8c6fb1;
+  --violet-dim:    rgba(140,111,177,.12);
+
+  --amber:         #b9853b;
+  --amber-dim:     rgba(185,133,59,.12);
+
+  --rose:          #b06d72;
+
+  --font-display:  'Spectral', Georgia, serif;
+  --font-caps:     'Spectral SC', Georgia, serif;
+  --font-body:     'Inter', -apple-system, sans-serif;
+  --font-mono:     'IBM Plex Mono', monospace;
+
+  --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease:   cubic-bezier(0.22, 1, 0.36, 1);
+
+  --header-h: 64px;
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+*{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+
+body{
+  margin:0;
+  background: radial-gradient(ellipse 120% 80% at 50% -10%, var(--bg-vignette), var(--bg) 55%);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* subtle fixed "specimen field" texture */
+body::before{
+  content:"";
+  position: fixed; inset:0;
+  background-image:
+    radial-gradient(circle at 18% 22%, rgba(79,232,199,0.05), transparent 40%),
+    radial-gradient(circle at 82% 68%, rgba(185,140,255,0.05), transparent 42%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+a{ color: var(--teal); }
+
+::-webkit-scrollbar{ height: 8px; width: 8px; }
+::-webkit-scrollbar-track{ background: transparent; }
+::-webkit-scrollbar-thumb{ background: var(--border-hi); border-radius: 8px; }
+
+.visually-hidden{
+  position:absolute; width:1px; height:1px; overflow:hidden;
+  clip:rect(0 0 0 0); white-space:nowrap;
+}
+
+/* ============================================================
+   TOP NAV
+   ============================================================ */
+/* ===========================================================
+   DNA LOADING SCREEN
+=========================================================== */
+
+#loader{
+
+position:fixed;
+
+inset:0;
+
+background:#070d17;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+z-index:99999;
+
+transition:opacity .8s ease,visibility .8s;
+
+}
+
+#loader.hide{
+
+opacity:0;
+
+visibility:hidden;
+
+pointer-events:none;
+
+}
+
+.dna{
+
+position:relative;
+
+width:170px;
+
+height:220px;
+
+margin-bottom:35px;
+
+display:flex;
+
+justify-content:space-between;
+
+}
+
+.dna span{
+
+position:relative;
+
+width:4px;
+
+height:100%;
+
+}
+
+.dna span::before,
+.dna span::after{
+
+content:"";
+
+position:absolute;
+
+left:50%;
+
+width:14px;
+
+height:14px;
+
+border-radius:50%;
+
+transform:translateX(-50%);
+
+animation:dnaMove 2.5s ease-in-out infinite;
+
+}
+
+.dna span::before{
+
+background:#4fe8c7;
+
+animation-delay:calc(var(--i)*.1s);
+
+}
+
+.dna span::after{
+
+background:#b98cff;
+
+animation-delay:calc(var(--i)*.1s + 1.25s);
+
+}
+
+@keyframes dnaMove{
+
+0%{
+
+top:0;
+
+transform:translateX(-50%) scale(.7);
+
+}
+
+50%{
+
+top:100%;
+
+transform:translateX(-50%) scale(1.2);
+
+}
+
+100%{
+
+top:0;
+
+transform:translateX(-50%) scale(.7);
+
+}
+
+}
+
+.dna span:nth-child(1){--i:1;}
+.dna span:nth-child(2){--i:2;}
+.dna span:nth-child(3){--i:3;}
+.dna span:nth-child(4){--i:4;}
+.dna span:nth-child(5){--i:5;}
+.dna span:nth-child(6){--i:6;}
+.dna span:nth-child(7){--i:7;}
+.dna span:nth-child(8){--i:8;}
+.dna span:nth-child(9){--i:9;}
+.dna span:nth-child(10){--i:10;}
+.dna span:nth-child(11){--i:11;}
+.dna span:nth-child(12){--i:12;}
+.dna span:nth-child(13){--i:13;}
+.dna span:nth-child(14){--i:14;}
+.dna span:nth-child(15){--i:15;}
+.dna span:nth-child(16){--i:16;}
+
+#loaderTitle{
+
+font-family:var(--font-display);
+
+font-size:32px;
+
+margin:0;
+
+}
+
+#loaderName{
+
+margin-top:8px;
+
+font-family:var(--font-mono);
+
+color:var(--teal);
+
+letter-spacing:2px;
+
+}
+
+#loaderPercent{
+
+margin-top:30px;
+
+font-size:54px;
+
+font-weight:700;
+
+font-family:var(--font-display);
+
+}
+
+#loaderStatus{
+
+margin-top:10px;
+
+font-family:var(--font-mono);
+
+color:var(--text-secondary);
+
+font-size:14px;
+
+}
+
+.topbar{
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  height: var(--header-h);
+
+  background: rgba(218, 190, 251, 0.94);
+  backdrop-filter: blur(18px) saturate(150%);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+
+  border-bottom: 1px solid rgba(90,72,48,.18);
+  box-shadow: 0 8px 24px rgba(66,48,26,.08);
+
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0 14px;
+}
+
+.brand{
+  display:flex; align-items:center; gap:8px;
+  font-family: var(--font-caps);
+  font-size: 0.86rem;
+  letter-spacing: 0.06em;
+  color: #3b2d20;
+  text-decoration:none;
+  flex-shrink:0;
+  cursor:pointer;
+  background:none; border:none;
+  padding: 6px 4px;
+}
+.brand .dot{
+  width:9px; height:9px; border-radius:50%;
+  background: var(--teal);
+  box-shadow: 0 0 10px 2px var(--teal-dim);
+  flex-shrink:0;
+}
+
+.brand small{
+  color:#2f2a24;
+  font-family:var(--font-mono);
+  font-size:0.62rem;
+  padding:5px 10px;
+  border-radius:999px;
+  transition:
+    color .25s var(--ease),
+    background .25s var(--ease),
+    transform .25s var(--spring);
+}
+
+.brand:hover small{
+  color:var(--text-primary);
+  background:var(--surface-hover);
+  transform:translateY(-1px);
+}
+
+.nav-scroll-wrap{
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+  display:flex;
+  align-items:center;
+}
+
+.nav-arrow{
+  flex-shrink:0;
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: #fffaf3;
+  color: #665849;
+  cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  transition: opacity 0.2s var(--ease), transform 0.2s var(--spring), border-color .2s;
+  z-index: 2;
+}
+.nav-arrow:hover{ color: var(--teal); border-color: var(--teal); transform: scale(1.08); }
+.nav-arrow:active{ transform: scale(0.92); }
+.nav-arrow[data-hidden="true"]{ opacity:0; pointer-events:none; }
+.nav-arrow svg{ width:15px; height:15px; }
+.nav-arrow.left{ margin-right: 4px; }
+.nav-arrow.right{ margin-left: 4px; }
+
+.tabs{
+  display:flex; gap: 6px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 4px 2px;
+}
+.tabs::-webkit-scrollbar{ display:none; }
+
+.tab{
+  flex-shrink:0;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.03em;
+  color: var(--text-secondary);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 7px 13px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color .25s var(--ease), background .25s var(--ease), border-color .25s var(--ease), transform .25s var(--spring);
+  position: relative;
+}
+.tab:hover{ color: var(--text-primary); background: var(--surface-hover); }
+.tab.active{
+  color: var(--bg);
+  background: var(--teal);
+  border-color: var(--teal);
+  font-weight: 600;
+  transform: translateY(-1px);
+}
+
+/* ============================================================
+   LAYOUT / HERO
+   ============================================================ */
+.wrap{
+  position: relative; z-index: 1;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 20px 90px;
+}
+
+.hero{
+  padding: 52px 4px 34px;
+  scroll-margin-top: calc(var(--header-h) + 12px);
+}
+
+.hero-eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-family: var(--font-mono);
+  font-size:0.72rem;
+  letter-spacing:0.08em;
+
+  color:#f7f3eb;
+  background:#bb80f3;
+
+  border:1px solid #2f7b74;
+  padding:6px 12px;
+  border-radius:999px;
+  margin-bottom:22px;
+
+  box-shadow:0 6px 16px rgba(31,93,87,.25);
+}
+.hero-eyebrow::before{ content:"◎"; }
+
+.hero h1{
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.1rem, 6vw, 3.4rem);
+  line-height: 1.05;
+  margin: 0 0 10px;
+  letter-spacing: -0.01em;
+}
+
+.hero .role-line{
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.05rem, 2.6vw, 1.3rem);
+  color: var(--text-secondary);
+  margin: 0 0 6px;
+}
+
+.hero .school-line{
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin: 0 0 26px;
+}
+.hero .school-line strong{ color: var(--text-secondary); font-weight: 500; }
+
+.contact-row{
+  display:flex; flex-wrap:wrap; gap: 10px;
+}
+.contact-chip{
+  display:flex; align-items:center; gap:7px;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--text-secondary);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 8px 13px;
+  border-radius: 10px;
+  text-decoration:none;
+  transition: border-color .2s var(--ease), color .2s var(--ease), transform .2s var(--spring);
+}
+.contact-chip:hover{ border-color: var(--teal); color: var(--teal); transform: translateY(-2px); }
+.contact-chip svg{ width:13px; height:13px; flex-shrink:0; }
+
+/* ============================================================
+   CARD DECK ("SPECIMEN SLIDES")
+   ============================================================ */
+.deck{
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-top: 8px;
+}
+
+.card{
+  scroll-margin-top: calc(var(--header-h) + 12px);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  overflow: hidden;
+  transition: border-color .35s var(--ease), box-shadow .35s var(--ease), transform .35s var(--spring);
+}
+.card:hover{ border-color: var(--border-hi); }
+.card.open{
+  border-color: rgba(79,232,199,0.35);
+  box-shadow: 0 0 0 1px rgba(79,232,199,0.08), 0 18px 40px -20px rgba(79,232,199,0.25);
+}
+
+.card-head{
+  display:flex; align-items:flex-start; gap: 16px;
+  width:100%;
+  padding: 20px 22px;
+  background: none; border:none;
+  text-align: left;
+  cursor: pointer;
+  color: inherit;
+  font-family: inherit;
+}
+
+.slide-tag{
+  flex-shrink:0;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.05em;
+  color: var(--violet);
+  background: var(--violet-dim);
+  border: 1px solid rgba(185,140,255,0.3);
+  padding: 4px 9px;
+  border-radius: 6px;
+  margin-top: 3px;
+  white-space: nowrap;
+}
+
+.card-head-text{ flex: 1; min-width:0; }
+
+.card-title{
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.22rem;
+  margin: 0 0 4px;
+  color: var(--text-primary);
+}
+.card-sub{
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  margin:0;
+}
+.card-preview{
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  margin: 8px 0 0;
+  max-width: 60ch;
+}
+
+.chevron{
+  flex-shrink:0;
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  display:flex; align-items:center; justify-content:center;
+  color: var(--text-secondary);
+  transition: transform .45s var(--spring), color .3s var(--ease), border-color .3s var(--ease), background .3s var(--ease);
+  margin-top: 2px;
+}
+.chevron svg{ width:14px; height:14px; }
+.card.open .chevron{
+  transform: rotate(135deg);
+  color: var(--bg);
+  background: var(--teal);
+  border-color: var(--teal);
+}
+
+/* --- morph body: grid-rows trick for smooth, robust auto-height animation --- */
+.card-body-outer{
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .5s var(--spring);
+}
+.card.open .card-body-outer{ grid-template-rows: 1fr; }
+
+.card-body-inner{
+  overflow: hidden;
+  min-height: 0;
+}
+
+.card-body{
+  padding: 0 22px 26px 60px;
+  opacity: 0;
+  transform: translateY(-6px) scale(0.985);
+  transition: opacity .35s var(--ease) .05s, transform .4s var(--spring) .05s;
+}
+.card.open .card-body{ opacity: 1; transform: translateY(0) scale(1); }
+
+.block{ margin-bottom: 18px; }
+.block:last-child{ margin-bottom:0; }
+
+.block-role{
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.97rem;
+  margin: 0 0 2px;
+}
+.block-meta{
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--teal);
+  margin: 0 0 10px;
+}
+.block p{ margin: 0 0 8px; color: var(--text-secondary); font-size: 0.92rem; }
+
+ul.bullets{
+  margin: 8px 0 0; padding: 0; list-style:none;
+}
+ul.bullets li{
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 7px;
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+}
+ul.bullets li::before{
+  content:"";
+  position:absolute; left:0; top:0.55em;
+  width:6px; height:6px; border-radius:1px;
+  background: var(--teal);
+  transform: rotate(45deg);
+}
+
+.subproject{
+  border-left: 2px solid var(--border);
+  padding: 4px 0 4px 16px;
+  margin: 14px 0;
+}
+.subproject-title{
+  font-weight:600; color: var(--text-primary); font-size: 0.9rem; margin-bottom:6px;
+}
+
+.badge{
+  display:inline-flex; align-items:center; gap:6px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--amber);
+  background: var(--amber-dim);
+  border: 1px solid rgba(255,192,114,0.35);
+  padding: 4px 9px;
+  border-radius: 999px;
+  margin-top: 6px;
+}
+.badge::before{ content:"✦"; }
+
+/* horizontally-scrolling chip rows (skills / certifications / languages) */
+.hscroll-wrap{ position: relative; margin-top: 4px; }
+.hscroll{
+  display:flex; gap:9px;
+  overflow-x:auto;
+  scroll-behavior:smooth;
+  scrollbar-width:none;
+  padding: 4px 2px 10px;
+}
+.hscroll::-webkit-scrollbar{ display:none; }
+
+.chip{
+  flex-shrink:0;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  background: var(--surface-hi);
+  border: 1px solid var(--border);
+  padding: 9px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color .2s var(--ease), border-color .2s var(--ease), background .2s var(--ease), transform .25s var(--spring);
+}
+.chip:hover{ border-color: var(--border-hi); transform: translateY(-2px); }
+.chip.selected{
+  color: var(--bg);
+  background: var(--teal);
+  border-color: var(--teal);
+  font-weight:600;
+  transform: translateY(-2px) scale(1.03);
+}
+
+.hscroll-arrow{
+  position:absolute; top:0; bottom: 10px;
+  width: 34px;
+  display:flex; align-items:center; justify-content:center;
+  border:none; cursor:pointer;
+  color: var(--text-primary);
+  z-index: 3;
+  transition: opacity .2s var(--ease);
+}
+.hscroll-arrow.left{
+  left:-4px;
+  background: linear-gradient(90deg, var(--surface) 40%, transparent);
+  justify-content: flex-start;
+}
+.hscroll-arrow.right{
+  right:-4px;
+  background: linear-gradient(270deg, var(--surface) 40%, transparent);
+  justify-content: flex-end;
+}
+.hscroll-arrow[data-hidden="true"]{ opacity:0; pointer-events:none; }
+.hscroll-arrow svg{ width:15px; height:15px; }
+
+/* ============================================================
+   FOOTER / BREADCRUMB
+   ============================================================ */
+footer{
+  position: relative; z-index:1;
+  border-top: 1px solid var(--border);
+  padding: 22px 20px 26px;
+  margin-top: 30px;
+}
+.breadcrumb{
+  max-width: 880px;
+  margin: 0 auto 16px;
+  display:flex; align-items:center; gap:6px;
+  flex-wrap: wrap;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+.breadcrumb .crumb{ color: var(--text-muted); }
+.breadcrumb .crumb.current{ color: var(--teal); }
+.breadcrumb .sep{ color: var(--border-hi); }
+
+.footer-credits{
+  max-width: 880px;
+  margin: 0 auto;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  display:flex; flex-direction:column; gap:4px;
+}
+.footer-credits p{
+  margin:0;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+.footer-credits .powered{ font-size: 0.6rem; color: rgba(93,107,140,0.6); }
+
+/* ============================================================
+   BACK TO TOP
+   ============================================================ */
+.to-top{
+  position: fixed;
+  right: 20px; bottom: 20px;
+  width: 46px; height:46px;
+  border-radius: 50%;
+  border: 1px solid rgba(79,232,199,0.35);
+  background: var(--surface-hi);
+  color: var(--teal);
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer;
+  box-shadow: 0 10px 30px -10px rgba(0,0,0,0.6);
+  opacity:0; visibility:hidden;
+  transform: translateY(14px) scale(0.85);
+  transition: opacity .3s var(--ease), transform .4s var(--spring), visibility .3s;
+  z-index: 45;
+}
+.to-top.show{
+  opacity:1; visibility:visible;
+  transform: translateY(0) scale(1);
+  animation: floatPulse 2.6s var(--ease) infinite;
+}
+.to-top:hover{ background: var(--teal); color: var(--bg); }
+.to-top svg{ width:18px; height:18px; }
+
+@keyframes floatPulse{
+  0%,100%{ box-shadow: 0 10px 30px -10px rgba(0,0,0,0.6), 0 0 0 0 rgba(79,232,199,0.25); }
+  50%{ box-shadow: 0 10px 30px -10px rgba(0,0,0,0.6), 0 0 0 8px rgba(79,232,199,0); }
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 640px){
+  .card-body{ padding-left: 22px; }
+  .brand small{ display:none; }
+  .hero{ padding-top: 38px; }
+  .to-top{ right:14px; bottom:14px; width:42px; height:42px; }
+}
+@media (min-width: 641px){
+  .nav-arrow.mobile-only{ display:none; }
+}
+</style>
+</head>
+<body>
+
+<div id="loader">
+
+    <div class="dna">
+
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </div>
+
+    <h2 id="loaderTitle">
+        Loading Profile
+    </h2>
+
+    <div id="loaderName">
+        Shivani Sivakumar, Biomedical Sciences (Honors, Pre‑Medicine)<br>
+    </div>
+
+    <div id="loaderPercent">
+        0%
+    </div>
+
+    <div id="loaderStatus">
+        Initializing...
+    </div>
+
+</div>
+
+<!-- ============================================================
+     TOP NAVIGATION
+     ============================================================ -->
+<header class="topbar">
+  <button class="brand" id="brandHome" aria-label="Scroll to top">
+    <span class="dot"></span> SHIVANI SIVAKUMAR <small>&nbsp;·&nbsp;RESEARCH PORTFOLIO</small>
+  </button>
+
+  <div class="nav-scroll-wrap">
+    <button class="nav-arrow left" id="tabsLeft" aria-label="Scroll tabs left">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <nav class="tabs" id="tabs" aria-label="Section navigation"></nav>
+    <button class="nav-arrow right" id="tabsRight" aria-label="Scroll tabs right">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="hero" id="hero">
+    <div class="hero-eyebrow">Seeking Research Roles — Oncology &amp; Translational Medicine</div>
+    <h1>Shivani Sivakumar</h1>
+    <p class="role-line">BSc Biomedical Sciences (Honors, Pre‑Medicine)</p>
+    <p class="school-line"><strong>Purdue University</strong>, West Lafayette · Expected Graduation May 2028</p>
+    <div class="contact-row">
+      <a class="contact-chip" href="https://www.linkedin.com/in/shivanisivakumar" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7.5 0h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.65 1.8-2.65 3.65V23h-4V8z"/></svg>
+        linkedin.com/in/shivanisivakumar
+      </a>
+      <a class="contact-chip" href="mailto:shiv.1906theoptimist@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m4 6 8 7 8-7"/></svg>
+        shiv.1906theoptimist@gmail.com
+      </a>
+      <a class="contact-chip" href="mailto:sivaku27@purdue.edu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m4 6 8 7 8-7"/></svg>
+        sivaku27@purdue.edu
+      </a>
+      <a class="contact-chip" href="tel:+17655434078">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .8 2.9a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.4a2 2 0 0 1 2.1-.4c.9.4 1.9.7 2.9.8a2 2 0 0 1 1.7 2z"/></svg>
+        +1 (765) 543‑4078
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CARD DECK
+       ============================================================ -->
+  <main class="deck" id="deck">
+    <!-- Cards are injected by JS from the DATA array below,
+         so content and structure stay perfectly in sync. -->
+  </main>
+</div>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+  <div class="breadcrumb" id="breadcrumb">
+    <span class="crumb current">Home</span>
+  </div>
+  <div class="footer-credits">
+    <p>Design idea by Shivani Sivakumar &copy; Shivani Sivakumar | 2026</p>
+    <p class="powered">Powered by claude.ai desktop free version</p>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
+
+<script>
+/* ==========================================================================
+   CONTENT DATA — sourced only from Shivani Sivakumar's resume document.
+   Each entry becomes one "specimen slide" card, and one nav tab.
+   ========================================================================== */
+const CARDS = [
+  {
+    id: "objective",
+    tag: "SPECIMEN 01",
+    tab: "Objective",
+    title: "Objective",
+    sub: "Research focus & guiding principle",
+    preview: "Honors Biomedical Sciences undergraduate seeking research or internship opportunities in molecular biology, oncology, microbiome science, and population health.",
+    bodyHTML: `
+      <div class="block">
+        <p>Honors Biomedical Sciences undergraduate with extensive laboratory and community-based research experience, seeking research or internship opportunities in molecular biology, oncology, microbiome science, and population health.</p>
+        <p>Guided by the principle <em>"Service to Society is best for Humanity"</em>, I aim to contribute to data-driven biomedical research and translational health initiatives while advancing scientific rigor, ethical research practice, and community impact.</p>
+      </div>`
+  },
+  {
+    id: "education",
+    tag: "SPECIMEN 02",
+    tab: "Education",
+    title: "Education",
+    sub: "Purdue University — Fall 2024 to May 2028",
+    preview: "Bachelor of Science in Biomedical Sciences (Honors, Pre-Medicine), Minor in Psychology. CGPA: 3.83 / 4.0.",
+    bodyHTML: `
+      <div class="block">
+        <p class="block-role">Purdue University — West Lafayette, USA</p>
+        <p class="block-meta">Fall 2024 — May 2028</p>
+        <ul class="bullets">
+          <li>Bachelor of Science in Biomedical Sciences (Honors, Pre-Medicine), Minor in Psychology</li>
+          <li>CGPA: 3.83 / 4.0</li>
+          <li>Dean's List and Semester Honors for Fall '24 – Spring '26 semesters</li>
+        </ul>
+      </div>`
+  },
+  {
+    id: "research-jaiswal",
+    tag: "SPECIMEN 03",
+    tab: "Jaiswal Lab",
+    title: "Undergraduate Researcher — Jaiswal Lab",
+    sub: "Dr. Natasha Jaiswal's Laboratory, Purdue University · Mar 2025 – Present",
+    preview: "DNA isolation, PCR, immunostaining, confocal imaging, and transcriptomic analysis across three projects: NMJ, Microbiome, and Collaborative Imaging.",
+    bodyHTML: `
+      <div class="block">
+        <p class="block-role">Undergraduate Researcher</p>
+        <p class="block-meta">Dr. Natasha Jaiswal's Laboratory — Purdue University, School of Health Sciences · Mar 2025 — Present</p>
+        <ul class="bullets">
+          <li>Perform DNA isolation, Nanodrop quantification, PCR, immunostaining, and NMJ analysis</li>
+          <li>Conduct image analysis (ImageJ) and observe confocal microscopy</li>
+          <li>Analyze transcriptomic datasets using RStudio, generating volcano graphs plotting gene expression</li>
+          <li>Contribute to protocol development, manuscript drafting, and laboratory website creation</li>
+        </ul>
+      </div>
+      <div class="block">
+        <p class="block-role">Projects</p>
+        <div class="subproject">
+          <p class="subproject-title">Neuromuscular Junction (NMJ) Project</p>
+          <ul class="bullets"><li>Genotyping, PCR, immunostaining, NMJ quantification</li></ul>
+        </div>
+        <div class="subproject">
+          <p class="subproject-title">Microbiome Project</p>
+          <ul class="bullets"><li>RNA-sequencing analysis using the Illumina program</li></ul>
+          <span class="badge">Co-author, Purdue Undergraduate Research Conference (Spring '26)</span>
+        </div>
+        <div class="subproject">
+          <p class="subproject-title">Collaborative Imaging Project</p>
+          <ul class="bullets"><li>NMJ innervation and fragmentation analysis</li></ul>
+          <span class="badge">Co-author — "Dietary omega-6 arachidonic acid and omega-3 docosahexaenoic acid supplementation differentially impact skeletal muscle inflammaging in mice" (Preprint)</span>
+        </div>
+      </div>`
+  },
+  {
+    id: "research-core",
+    tag: "SPECIMEN 04",
+    tab: "CORE Lab",
+    title: "Undergraduate Researcher — Community-Based Research",
+    sub: "CORE Lab, John Martinson Honors College, Purdue University · Jan 2025 – Present",
+    preview: "Three projects spanning youth-centric qualitative research, program co-design & evaluation, and summer qualitative coding — with conference co-authorships and awards.",
+    bodyHTML: `
+      <div class="block">
+        <p class="block-role">Undergraduate Researcher — Community-Based Research</p>
+        <p class="block-meta">CORE Lab, John Martinson Honors College, Purdue University · Jan 2025 — Present</p>
+      </div>
+      <div class="block">
+        <div class="subproject">
+          <p class="subproject-title">Project 1 — Voices to Action: After-School Youth Programs (HONR 299)</p>
+          <ul class="bullets">
+            <li>Conduct youth-centric qualitative research using Community-Based Research (CBR) principles</li>
+            <li>Review sensitive focus-group transcripts, ensuring ethical integrity and confidentiality</li>
+            <li>Refine surveys, engage youth participants and families, and present findings to academic and community audiences</li>
+          </ul>
+          <span class="badge">Co-author, SCIPIE 2025 — University of Oklahoma (Oct 2025): "Supporting Youth Needs, Communal Learning, and Development with Afterschool Programming"</span>
+        </div>
+        <div class="subproject">
+          <p class="subproject-title">Project 2 — Afterschool Program Co-Design &amp; Evaluation</p>
+          <ul class="bullets">
+            <li>Faculty-funded project (JMHC Research Breakthrough Seed Award)</li>
+            <li>Collaborate with multidisciplinary teams and community partners</li>
+            <li>Support program design, evaluation, documentation, and applied research reporting</li>
+          </ul>
+          <span class="badge">Co-presenting author, Purdue Undergraduate Research Conference (Spring '26) — High Distinction Award &amp; INSIGHT Award for High-Impact Humanistic Inquiry</span>
+        </div>
+        <div class="subproject">
+          <p class="subproject-title">Project 3 — Summer Researcher, Qualitative Team</p>
+          <p class="block-meta">May 2026 — August 2026</p>
+          <ul class="bullets">
+            <li>Applied complex qualitative codebooks to youth interview transcript data to analyze specific research questions regarding afterschool programs, ensuring high data accuracy and alignment with project goals</li>
+            <li>Formatted and finalized detailed research reports and transcript data using cloud-collaboration platforms like Box and Microsoft 365 for review by senior investigators and lab leadership</li>
+            <li>Collaborated closely with cross-functional research teams during data coding phases to establish strong inter-rater reliability and maintain rigorous qualitative standards</li>
+          </ul>
+        </div>
+      </div>`
+  },
+  {
+    id: "research-pang",
+    tag: "SPECIMEN 05",
+    tab: "Pang Lab",
+    title: "Summer Undergraduate Internship — Pang Lab",
+    sub: "Rutgers Robert Wood Johnson Medical School · June 2026 – August 2026",
+    preview: "Bioinformatics research integrating RStudio and dknet.AI to analyze neurometabolism data pipelines, leveraging the Allen Brain Atlas.",
+    bodyHTML: `
+      <div class="block">
+        <p class="block-role">Summer Undergraduate Internship</p>
+        <p class="block-meta">Pang Lab, Rutgers Robert Wood Johnson Medical School, Rutgers University · June 2026 — August 2026</p>
+        <ul class="bullets">
+          <li>Focus on the bioinformatic aspect of research, integrating RStudio and dknet.AI to analyze complex data pipelines, with a particular focus on neurometabolism</li>
+          <li>This project integrates computational tools with biological insights, leveraging the ABC Allen Atlas to contextualize protein structures and metabolic networks in the brain</li>
+        </ul>
+      </div>`
+  },
+  {
+    id: "research-soil",
+    tag: "SPECIMEN 06",
+    tab: "Soil Chemistry",
+    title: "Research Collaborator — Soil Chemistry",
+    sub: "HONR 199 Research Initiative, Purdue University · Aug 2024 – Dec 2024",
+    preview: "Analyzed soil pH and NPK nutrient levels across campus sites, investigating traffic impact on soil quality.",
+    bodyHTML: `
+      <div class="block">
+        <p class="block-role">Research Collaborator — Soil Chemistry</p>
+        <p class="block-meta">HONR 199 Research Initiative, Purdue University · Aug 2024 — Dec 2024</p>
+        <ul class="bullets">
+          <li>Analyzed soil pH and NPK nutrient levels across disturbed and undisturbed campus sites</li>
+          <li>Investigated impacts of human and vehicular traffic on soil quality</li>
+          <li>Evaluated sampling limitations related to moisture, runoff, and semi-urban soil dynamics</li>
+        </ul>
+      </div>`
+  },
+  {
+    id: "independent-research",
+    tag: "SPECIMEN 07",
+    tab: "Independent Research",
+    title: "Independent &amp; Pre-University Research",
+    sub: "IB Extended Essay and additional independent studies",
+    preview: "Biochemical investigation of mango ripening (IB Extended Essay), plus independent studies in pharmacology, phytochemistry, and ethnobotany.",
+    bodyHTML: `
+      <div class="block">
+        <p class="block-role">IB Extended Essay (Biology)</p>
+        <p class="block-meta">Effects of Artificial vs. Natural Ripening of Mangifera indica</p>
+        <ul class="bullets">
+          <li>Designed and conducted biochemical experiments independently</li>
+          <li>Assessed vitamin C, titratable acidity, starch, reducing sugars, and moisture content</li>
+          <li>Evaluated nutritional and health implications of chemical ripening agents</li>
+        </ul>
+      </div>
+      <div class="block">
+        <p class="block-role">Additional Studies</p>
+        <ul class="bullets">
+          <li>NSAIDs vs. herbal remedies for dysmenorrhea (IB Internal Assessment)</li>
+          <li>Phenolic compound extraction from fenugreek leaves (Chemistry IA)</li>
+          <li>Field research on medicinal plants and traditional remedies</li>
+        </ul>
+      </div>`
+  },
+  {
+    id: "certifications",
+    tag: "SPECIMEN 08",
+    tab: "Certifications",
+    title: "Certifications &amp; Training",
+    sub: "Coursework and professional training",
+    preview: "Biostatistics in Public Health, Science of Stem Cells, Introduction to Digital Oncology, CPR/BLS, and more.",
+    isChipCard: true,
+    chipKey: "certifications",
+    chips: [
+      "Biostatistics in Public Health — Johns Hopkins University (2025)",
+      "Science of Stem Cells — American Museum of Natural History (Score: 96%)",
+      "Introduction to Digital Oncology — Singapore General Hospital",
+      "CPR & Basic Life Support (Adult & Pediatrics)",
+      "Herbalism and Women's Health — Mama Earth"
+    ]
+  },
+  {
+    id: "skills",
+    tag: "SPECIMEN 09",
+    tab: "Skills",
+    title: "Technical Skills",
+    sub: "Laboratory, computational, and clinical techniques",
+    preview: "PCR, immunostaining, confocal-linked NMJ analysis, RNA-seq, RStudio, dknet.AI, spectrophotometry, and first-aid techniques.",
+    isChipCard: true,
+    chipKey: "skills",
+    chips: [
+      "DNA isolation & quantification (Nanodrop)",
+      "PCR",
+      "Immunostaining",
+      "NMJ analysis (ImageJ)",
+      "RNA-seq & transcriptomic analysis (Illumina)",
+      "RStudio (statistical analysis & visualization)",
+      "Dknet.AI (AI data pipeline visualization)",
+      "Qualitative and Quantitative assessment",
+      "Titration",
+      "Spectrophotometry",
+      "Soil sampling (NPK analysis)",
+      "First-aid Techniques — CPR, Pediatric CPR, First Aid, Heimlich Maneuver"
+    ]
+  },
+  {
+    id: "leadership",
+    tag: "SPECIMEN 10",
+    tab: "Leadership",
+    title: "Leadership &amp; Service",
+    sub: "Community initiatives and peer support",
+    preview: "Co-Founder of the Crimson Wave Project, blood donation organizing, academic scribing, and mental health advocacy through the arts.",
+    bodyHTML: `
+      <div class="block">
+        <ul class="bullets">
+          <li>Co-Founder, Crimson Wave Project — menstrual hygiene advocacy initiative</li>
+          <li>Student Organizer, Blood Donation Camps</li>
+          <li>Academic Scribe, supporting students with disabilities</li>
+          <li>Mental health advocacy through music and arts</li>
+          <li>Academic and peer mentorship (Biology, languages, student support)</li>
+          <li>Clinical shadowing in dentistry</li>
+        </ul>
+      </div>`
+  },
+  {
+    id: "extracurricular",
+    tag: "SPECIMEN 11",
+    tab: "Extracurricular",
+    title: "Extracurricular &amp; Cultural Leadership",
+    sub: "Music, performance, and cultural organizing",
+    preview: "Board Member of Tamil Sangam and a professional Carnatic music vocalist with 8+ years of performance experience.",
+    bodyHTML: `
+      <div class="block">
+        <ul class="bullets">
+          <li>Board Member, External Events Team — Tamil Sangam, Purdue University</li>
+          <li>Professional Carnatic Music Vocalist (8+ years)</li>
+          <li>Award-winning orator and performer</li>
+        </ul>
+      </div>`
+  },
+  {
+    id: "languages",
+    tag: "SPECIMEN 12",
+    tab: "Languages",
+    title: "Languages",
+    sub: "Spoken and studied languages",
+    preview: "Tamil, English, French, German, and Hindi.",
+    isChipCard: true,
+    chipKey: "languages",
+    chips: ["Tamil", "English", "French", "German", "Hindi"]
+  }
+];
+
+/* ==========================================================================
+   RENDER CARDS + NAV TABS
+   ========================================================================== */
+const deckEl = document.getElementById("deck");
+const tabsEl = document.getElementById("tabs");
+
+function chipRowHTML(card){
+  const items = card.chips.map(c =>
+    `<button type="button" class="chip" data-chipkey="${card.chipKey}">${c}</button>`
+  ).join("");
+  return `
+    <div class="hscroll-wrap" data-hscroll-wrap="${card.id}">
+      <div class="hscroll" id="hscroll-${card.id}">${items}</div>
+      <button class="hscroll-arrow left" data-hscroll-btn="${card.id}" data-dir="-1" aria-label="Scroll left">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button class="hscroll-arrow right" data-hscroll-btn="${card.id}" data-dir="1" aria-label="Scroll right">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>`;
+}
+
+CARDS.forEach(card => {
+  const bodyHTML = card.isChipCard
+    ? `<div class="block"><p class="block-role">${card.title}</p>${chipRowHTML(card)}</div>`
+    : card.bodyHTML;
+
+  const cardEl = document.createElement("article");
+  cardEl.className = "card";
+  cardEl.id = card.id;
+  cardEl.innerHTML = `
+    <button class="card-head" data-toggle="${card.id}" aria-expanded="false">
+      <span class="slide-tag">${card.tag}</span>
+      <span class="card-head-text">
+        <p class="card-title">${card.title}</p>
+        <p class="card-sub">${card.sub}</p>
+        <p class="card-preview">${card.preview}</p>
+      </span>
+      <span class="chevron">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </span>
+    </button>
+    <div class="card-body-outer">
+      <div class="card-body-inner">
+        <div class="card-body">${bodyHTML}</div>
+      </div>
+    </div>`;
+  deckEl.appendChild(cardEl);
+
+  const tabEl = document.createElement("button");
+  tabEl.type = "button";
+  tabEl.className = "tab";
+  tabEl.dataset.target = card.id;
+  tabEl.textContent = card.tab;
+  tabsEl.appendChild(tabEl);
+});
+
+/* ==========================================================================
+   SIMPLE ACCORDION
+   ========================================================================== */
+
+function closeAllCards() {
+  document.querySelectorAll(".card").forEach(card => {
+    card.classList.remove("open");
+
+    const btn = card.querySelector(".card-head");
+    if (btn) btn.setAttribute("aria-expanded", "false");
+  });
+}
+
+function openCard(id, scroll = true) {
+
+  closeAllCards();
+
+  const card = document.getElementById(id);
+
+  if (!card) return;
+
+  card.classList.add("open");
+  console.log("Opening:", id);
+
+  const btn = card.querySelector(".card-head");
+  if (btn) btn.setAttribute("aria-expanded", "true");
+
+  setActiveTab(id);
+
+  if (scroll) {
+
+    setTimeout(() => {
+
+        const top =
+            card.getBoundingClientRect().top +
+            window.scrollY -
+            70;   // sticky header height
+
+        window.scrollTo({
+            top: top,
+            behavior: "smooth"
+        });
+
+    }, 350);
+
+}
+}
+
+deckEl.addEventListener("click", function(e){
+
+  const btn = e.target.closest("[data-toggle]");
+
+  if(!btn) return;
+
+  const card = document.getElementById(btn.dataset.toggle);
+
+  if(card.classList.contains("open")){
+      closeAllCards();
+      setActiveTab(null);
+      return;
+  }
+
+  openCard(btn.dataset.toggle,true);
+
+});
+
+/* ==========================================================================
+   CHIP SELECT (skills / certifications / languages) — independent toggle
+   ========================================================================== */
+deckEl.addEventListener("click", (e) => {
+  const chip = e.target.closest(".chip");
+  if (!chip) return;
+  chip.classList.toggle("selected");
+});
+
+/* ==========================================================================
+   NAV TABS — click maps to card, header strip pans left/right to follow
+   ========================================================================== */
+function setActiveTab(id){
+  const tabs = tabsEl.querySelectorAll(".tab");
+  tabs.forEach(t => t.classList.toggle("active", t.dataset.target === id));
+  const activeTab = tabsEl.querySelector(`.tab[data-target="${id}"]`);
+  if (activeTab) {
+    activeTab.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+  }
+  updateBreadcrumb(id);
+}
+
+tabsEl.addEventListener("click", function(e){
+
+  const tab = e.target.closest(".tab");
+
+  if(!tab) return;
+
+  openCard(tab.dataset.target);
+
+});
+
+document.getElementById("brandHome").addEventListener("click", function(){
+
+  closeAllCards();
+
+  setActiveTab(null);
+
+  document.getElementById("hero").scrollIntoView({
+    behavior:"smooth"
+  });
+
+});
+
+
+
+/* ==========================================================================
+   BREADCRUMB (lightweight footer trail)
+   ========================================================================== */
+const breadcrumbEl = document.getElementById("breadcrumb");
+function updateBreadcrumb(id){
+  const card = CARDS.find(c => c.id === id);
+  if (!card) {
+    breadcrumbEl.innerHTML = `<span class="crumb current">Home</span>`;
+    return;
+  }
+  breadcrumbEl.innerHTML =
+    `<span class="crumb">Home</span><span class="sep">/</span><span class="crumb current">${card.tab}</span>`;
+}
+
+/* ==========================================================================
+   GENERIC HORIZONTAL-SCROLL ARROW CONTROLLER
+   Used for: nav tabs strip + each chip row. Hides arrows when there is
+   nothing to scroll, and disables them at the natural start/end.
+   ========================================================================== */
+function wireHScroll(container, leftBtn, rightBtn, step = 220){
+  if (!container) return;
+
+  function refresh(){
+    const canScroll = container.scrollWidth > container.clientWidth + 2;
+    if (!canScroll) {
+      if (leftBtn) leftBtn.dataset.hidden = "true";
+      if (rightBtn) rightBtn.dataset.hidden = "true";
+      return;
+    }
+    const atStart = container.scrollLeft <= 2;
+    const atEnd = container.scrollLeft + container.clientWidth >= container.scrollWidth - 2;
+    if (leftBtn) leftBtn.dataset.hidden = atStart ? "true" : "false";
+    if (rightBtn) rightBtn.dataset.hidden = atEnd ? "true" : "false";
+  }
+
+  if (leftBtn) leftBtn.addEventListener("click", () => container.scrollBy({ left: -step, behavior: "smooth" }));
+  if (rightBtn) rightBtn.addEventListener("click", () => container.scrollBy({ left: step, behavior: "smooth" }));
+  container.addEventListener("scroll", refresh, { passive: true });
+  window.addEventListener("resize", refresh);
+  refresh();
+  // Re-check shortly after load in case fonts shift layout width
+  setTimeout(refresh, 300);
+  setTimeout(refresh, 900);
+}
+
+wireHScroll(tabsEl, document.getElementById("tabsLeft"), document.getElementById("tabsRight"), 160);
+
+CARDS.filter(c => c.isChipCard).forEach(card => {
+  const wrap = document.querySelector(`[data-hscroll-wrap="${card.id}"]`);
+  if (!wrap) return;
+  const row = wrap.querySelector(".hscroll");
+  const left = wrap.querySelector('[data-hscroll-btn][data-dir="-1"]');
+  const right = wrap.querySelector('[data-hscroll-btn][data-dir="1"]');
+  wireHScroll(row, left, right, 200);
+});
+
+/* ==========================================================================
+   BACK TO TOP
+   ========================================================================== */
+const toTopBtn = document.getElementById("toTop");
+window.addEventListener("scroll", () => {
+  toTopBtn.classList.toggle("show", window.scrollY > 560);
+}, { passive: true });
+
+toTopBtn.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+// ==========================================================================
+// SIMPLE SCROLL TRACKER
+// Highlights the card whose TITLE is nearest to the sticky header.
+// ==========================================================================
+
+// Scroll tracking intentionally disabled.
+// Active tab changes only when a tab or card is clicked.
+
+/* Initialize breadcrumb + first card */
+updateBreadcrumb(null);
+
+openCard(CARDS[0].id, false);
+
+/* ==========================================================
+   DNA Loader
+========================================================== */
+
+const loader = document.getElementById("loader");
+
+const percent = document.getElementById("loaderPercent");
+
+const statusText = document.getElementById("loaderStatus");
+
+const messages = [
+
+"Initializing Laboratory",
+
+"Loading Academic Profile",
+
+"Preparing Research Experience",
+
+"Loading Publications",
+
+"Analyzing Skills",
+
+"Building Portfolio",
+
+"Finalizing..."
+
+];
+
+let p = 0;
+
+const timer = setInterval(()=>{
+
+p++;
+
+percent.textContent = p + "%";
+
+const index = Math.min(
+messages.length-1,
+Math.floor(p/15)
+);
+
+statusText.textContent = messages[index];
+
+if(p>=100){
+
+clearInterval(timer);
+
+setTimeout(()=>{
+
+loader.classList.add("hide");
+
+},500);
+
+}
+
+},28);
+
+</script>
+</body>
+</html>
